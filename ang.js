@@ -1,5 +1,6 @@
 
-angular.module("meapp", []).controller('mecontroller', function($scope, $http) {
+var angMod = angular.module("meapp", []);
+angMod.controller('mecontroller', function($scope, $http) {
             $scope.submit = function(){
                
                var data = {
