@@ -5,6 +5,8 @@
    </head>
 
    <body style="text-align: center;font-size: 150%;">
+      <script src="ang.js"></script>
+
       
       <h2>Sign up page</h2>
       <div ng-app="meapp" ng-controller = "mecontroller">
@@ -24,31 +26,9 @@
 
          <button ng-click="submit()">Submit</button>
          <button ng-click="cancel()">Cancel</button><br>
-         <textarea style="width:200px; height: 100px;">result: {{res|json}}</textarea>
+         <textarea style="width:300px; height: 300px;">result: {{res|json}}</textarea>
          
         </div>
-      
-      <script>
-         angular.module("meapp", []).controller('mecontroller', function($scope, $http) {
-            $scope.submit = function(){
-               
-               var data = {
-                  fname: $scope.firstName,
-                  lname: $scope.lastName,
-                  bir: $scope.birthday,
-                  houseNumber : $scope.houseNum,
-                  street: $scope.street,
-                  city: $scope.city
-               };
-               $scope.res = data;
-
-               // $http.post("104.199.119.167", data).then(function(response){
-               //    $scope.res = response;
-               // });
-            }
-            
-         });
-      </script>
       
    </body>
 </html>
