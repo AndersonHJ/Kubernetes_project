@@ -1,8 +1,9 @@
 
 var angMod = angular.module("meapp", []);
 angMod.controller('mecontroller', function($scope, $http) {
+            $scope.res = [];
             $scope.submit = function(){
-               
+               var arr = [];
                var data = {
                   fname: $scope.firstName,
                   lname: $scope.lastName,
@@ -11,11 +12,9 @@ angMod.controller('mecontroller', function($scope, $http) {
                   street: $scope.street,
                   city: $scope.city
                };
-               $scope.res = data;
+               
+               $scope.res.push(data);
 
-               // $http.post("104.199.119.167", data).then(function(response){
-               //    $scope.res = response;
-               // });
             }
 
             $scope.cancel = function(){
