@@ -19,8 +19,9 @@ The js file for controller.
    
    sudo vi 000-default.conf
    
-   /*You should find DocumentRoot*/
-   change the value to DocumentRoot /var/www/html/webTool_angularJS
+   You should find DocumentRoot
+   
+   change the value to:  DocumentRoot /var/www/html/webTool_angularJS
    
    save the modifications
    
