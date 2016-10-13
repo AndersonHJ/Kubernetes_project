@@ -1,0 +1,34 @@
+<html>
+   <head>
+      <title>Angular JS Forms</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   </head>
+
+   <body style="text-align: center;font-size: 150%;">
+      <script src="controller.js"></script>
+
+      
+      <h2>Sign up page</h2>
+      <div ng-app="meapp" ng-controller = "mecontroller">
+        
+         <p>First Name: <input type = "text" ng-model = "firstName"></p>
+         <p>Last Name: <input type = "text" ng-model = "lastName"></p>
+         <p>Birthday: <input type="date" ng-model = "birthday"></p>
+         <p>House number: <input type = "text" ng-model = "houseNum"></p>
+         <p>Street: <input type = "text" ng-model = "street"></p>
+         <p>City: <select name="city" ng-model = "city">
+                <option value="Seattle">Seattle</option>
+                <option value="Tacoma">Tacoma</option>
+                <option value="Bellveue">Bellveue</option>
+                <option value="Olimpic">Olimpic</option>
+                </select>
+         </p> 
+
+         <button ng-click="submit()">Submit</button>
+         <button ng-click="cancel()">Cancel</button><br>
+         <textarea style="width:300px; height: 300px;">result: {{res|json}}</textarea>
+         
+        </div>
+      
+   </body>
+</html>
