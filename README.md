@@ -1,5 +1,12 @@
 # webTool_angularJS
 
+##webTool_angularJS
+The website for pc and pad.
+
+##m.webTool_angularJS
+The website for mobile device.
+
+
 ## index.html
 The html file which includes all the contents shown on the browser.
 
@@ -9,6 +16,14 @@ The js file for controller.
 
 
 ## Instructions
+
+
+
+
+
+
+
+
 ###1. Deploy the application:
    
    cd /var/www/html
