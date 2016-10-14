@@ -1,27 +1,29 @@
 # webTool_angularJS
 
-##webTool_angularJS
+###/webTool_angularJS
 The website for pc and pad.
 
-##m.webTool_angularJS
+
+###/m.webTool_angularJS
 The website for mobile device.
 
 
-## index.html
+### index.html
 The html file which includes all the contents shown on the browser.
 
 
-## controller.js
+### controller.js
 The js file for controller.
 
 
+
 ## Instructions
+###Setup mobile website
+Go to setup_mobile.m
 
 
-
-
-
-
+###Setup Redis database
+Got to setup_redis.m
 
 
 ###1. Deploy the application:
