@@ -18,12 +18,12 @@
 
 
 ## Instructions
-###Setup mobile website
-Go to setup_mobile.m
-
-
 ###Setup virtual host
 Go to setup_vh.m
+
+
+###Setup mobile website
+Go to setup_mobile.m
 
 
 ###Setup Redis database
