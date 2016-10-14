@@ -70,6 +70,8 @@ Go to setup_vh.m
       
       make test
       
+      cd ..
+      
       sudo make install
       
       cd utils
