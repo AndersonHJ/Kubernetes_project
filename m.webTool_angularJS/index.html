@@ -10,6 +10,12 @@
 
    <body style="text-align: center;font-style: italic;font-family:monospace;font-size: 130%" ng-app="meapp" ng-controller = "mecontroller">
 
+        <div ng-hide="titlehide">
+            <h1>Welcom!</h1>
+            <h2>You can log in directly, or sign up</h2>
+        </div>
+
+
         <div>
             <button class="btn btn-primary btn-lg btn-block" ng-click="showLogin()">Log in</button>
             <button class="btn btn-info btn-lg btn-block" ng-click="showSignup()">Sign up</button><br>
