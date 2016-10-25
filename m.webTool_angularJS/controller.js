@@ -4,7 +4,7 @@ var angMod = angular.module("meapp", ['ngCookies']);
 angMod.controller('mecontroller', function($scope, $http, $cookieStore) {
     $scope.res = [];
     
-    $scope.hideLogin = false;
+    $scope.hideLogin = true;
     $scope.hideSignup = true;
 
 
