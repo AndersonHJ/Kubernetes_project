@@ -37,7 +37,7 @@ angMod.controller('mecontroller', function($scope, $http, $cookieStore) {
 
 
     /* Submit sign up form*/
-    $scope.signup = function(){
+    signup = function(){
        $scope.result = {
             firstName : "",
             lastName : "",
@@ -71,7 +71,7 @@ angMod.controller('mecontroller', function($scope, $http, $cookieStore) {
        .success(function (data, status, headers, config) {
             data = data.slice(10, -2);
             JSON.parse(data, function(k, v){
-                console.log(k+"  | "+v);
+                //console.log(k+"  | "+v);
                 if(k!="")
                    $scope.result[k] = v;
             });
@@ -100,7 +100,7 @@ angMod.controller('mecontroller', function($scope, $http, $cookieStore) {
 
 
     /* Submit log in form*/
-    $scope.login = function(){
+    login = function(){
 
         $http.get("map.php?cmd=get&key="+$scope.user.email, {
             transformResponse: function (data, headers) { //MESS WITH THE DATA
@@ -109,10 +109,12 @@ angMod.controller('mecontroller', function($scope, $http, $cookieStore) {
             }
         })
         .success(function (data, status, headers, config) {
-            if(data != undefined){
-                data = data.slice(10, -2);
+            //console.log(data);
+            data = data.slice(10, -2);
+            //console.log(data.length<5);
+            if(data.length>5){
                 JSON.parse(data, function(k, v){
-                    console.log(k+"  | "+v);
+                    //console.log(k+"  | "+v);
                     if(k=="passwd"){
                         if(v==$scope.user.passwd){
                             location.href = "http://104.40.49.149/";
@@ -123,13 +125,11 @@ angMod.controller('mecontroller', function($scope, $http, $cookieStore) {
                             alert("your password is not corrected");
                             $scope.user.passwd = "";
                         }
-                    }
-                               
+                    }            
                 });
-                
             }
             else{
-                alert("no such user");
+                alert("Cann't find you, you need sign up first!");
                 $scope.cancelIt();
             }
             
