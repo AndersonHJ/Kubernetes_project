@@ -110,10 +110,6 @@ For more details please check [the wiki](https://github.com/10gen-labs/sleepy.mo
 
       VM1: http://104.199.119.167
 
-      VM2: http://104.199.126.90
-
-      VM3: http://104.198.108.13
-
 
 ###using application
 
