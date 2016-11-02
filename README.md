@@ -83,7 +83,7 @@
       
       curl -X GET 'http://localhost:27080/test/web_tool/_find'
 
-      For more details please check [the wiki](https://github.com/10gen-labs/sleepy.mongoose/wiki) page of sleepy.mongoose
+For more details please check [the wiki](https://github.com/10gen-labs/sleepy.mongoose/wiki) page of sleepy.mongoose
       
       
 
