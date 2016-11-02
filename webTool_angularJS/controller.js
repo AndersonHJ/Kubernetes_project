@@ -1,16 +1,39 @@
 
 var angMod = angular.module("meapp", ['ngCookies']);
 
+
 angMod.controller('mecontroller', function($scope, $http, $cookieStore) {
     $scope.res = [];
     
     $scope.hideLogin = true;
     $scope.hideSignup = true;
     $scope.titlehide = false;
+    $scope.hideCounter = true;
 
+
+
+    var time = new Date().toISOString();
+
+    var sendTimestamp = function(userEmail){
+        /*send hit data to database*/
+        $http.post("http://104.199.119.167:27080/test/web_tool/_insert",
+            'docs={"email": "'+userEmail+'", "timestamp":"'+time+'"}',{
+                headers: { 
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+        })
+        .success(function (data, status, headers, config) {
+            console.log(status);
+        });
+    }
 
     var myEmail = $cookieStore.get("email");
     var myPw = $cookieStore.get("pw");
+
+    if(myEmail!=undefined)
+        sendTimestamp(myEmail);
+    else
+        sendTimestamp('unknown');
 
     if(myEmail!=undefined&&myPw!=undefined){
         if (confirm("Would you like to log in as a new user?") == false) {
@@ -27,12 +50,21 @@ angMod.controller('mecontroller', function($scope, $http, $cookieStore) {
         $scope.hideSignup = true;
         $scope.hideLogin = false;
         $scope.titlehide = true;
+        $scope.hideCounter = true;
     }
 
     $scope.showSignup = function(){
         $scope.hideLogin = true;
         $scope.hideSignup = false;
         $scope.titlehide = true;
+        $scope.hideCounter = true;
+    }
+
+    $scope.showCounter = function(){
+        $scope.hideLogin = true;
+        $scope.hideSignup = true;
+        $scope.titlehide = true;
+        $scope.hideCounter = false;
     }
 
 
@@ -144,6 +176,75 @@ angMod.controller('mecontroller', function($scope, $http, $cookieStore) {
     $scope.cancelIt = function(){
         $scope.user.email = "";
         $scope.user.passwd = "";
+    }
+
+
+    $scope.countHourly = function(){
+        var hourTime = new Date($scope.counter.hour);
+        var hourTime2 = new Date($scope.counter.hour);
+        
+        hourTime.setHours(hourTime.getHours()-1);
+        $http.get('http://104.199.119.167:27080/test/web_tool/_find?criteria={"timestamp":{"$gt":"'+hourTime.toISOString()+'","$lt":"'+hourTime2.toISOString()+'"}}',
+        {
+            headers: { 
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        })
+        .success(function (data, status, headers, config) {
+            $scope.resphour = data.results.length;
+            console.log(data.results.length);
+        });
+    }
+
+    $scope.countDayly = function(){
+        var dayTime = new Date($scope.counter.day);
+        var dayTime2 = new Date($scope.counter.day);
+        dayTime.setDate(dayTime.getDate()-1);
+
+        $http.get('http://104.199.119.167:27080/test/web_tool/_find?criteria={"timestamp":{"$gt":"'+dayTime.toISOString()+'","$lt":"'+dayTime2.toISOString()+'"}}',
+        {
+            headers: { 
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        })
+        .success(function (data, status, headers, config) {
+            $scope.respday = data.results.length;
+            console.log(data.results.length);
+        });
+    }
+
+    $scope.countMonthly = function(){
+        var monthTime = new Date($scope.counter.month);
+        var monthTime2 = new Date($scope.counter.month);
+        monthTime.setDate(monthTime.getDate()-1);
+
+        $http.get('http://104.199.119.167:27080/test/web_tool/_find?criteria={"timestamp":{"$gt":"'+monthTime.toISOString()+'","$lt":"'+monthTime2.toISOString()+'"}}',
+        {
+            headers: { 
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        })
+        .success(function (data, status, headers, config) {
+            $scope.respmonth = data.results.length;
+            console.log(data.results.length);
+        });
+    }
+
+    $scope.countYearly = function(){
+        var yearTime = new Date($scope.counter.year);
+        var yearTime2 = new Date($scope.counter.year);
+        yearTime.setDate(yearTime.getDate()-1);
+
+        $http.get('http://104.199.119.167:27080/test/web_tool/_find?criteria={"timestamp":{"$gt":"'+yearTime.toISOString()+'","$lt":"'+yearTime2.toISOString()+'"}}',
+        {
+            headers: { 
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        })
+        .success(function (data, status, headers, config) {
+            $scope.respyear = data.results.length;
+            console.log(data.results.length);
+        });
     }
 
 });

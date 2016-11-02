@@ -8,48 +8,62 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
 
-   <body style="text-align: center;font-style: italic;font-family:monospace;font-size: 130%" ng-app="meapp" ng-controller = "mecontroller">
+   <body class="container" style="text-align: center;font-style: italic;font-family:monospace;font-size: 130%" ng-app="meapp" ng-controller = "mecontroller">
 
         <div ng-hide="titlehide">
-            <h1>Welcom!</h1>
+            <h1>Welcom mobile!</h1>
             <h2>You can log in directly, or sign up</h2>
         </div>
 
-
         <div>
             <button class="btn btn-primary btn-lg btn-block" ng-click="showLogin()">Log in</button>
-            <button class="btn btn-info btn-lg btn-block" ng-click="showSignup()">Sign up</button><br>
+            <button class="btn btn-info btn-lg btn-block" ng-click="showSignup()">Sign up</button>
+            <button class="btn btn-success btn-lg btn-block" ng-click="showCounter()">Get visit information</button>
         </div>
 
         <div class="login" ng-hide="hideLogin">
-            <h2>Log in page (mobile)</h2>
-            <p>Email: <input type="text" ng-model = "user.email" ></p>
-            <p>Password: <input type="password" ng-model = "user.passwd"></p>
-            <button class="btn btn-primary btn-md" ng-click="login()">Log in</button>
-            <button class="btn btn-default btn-md" ng-click="cancelIt()">Cancel</button><br>
-          
+            <h2>Log in page</h2>
+            <form onsubmit="login()">
+              <p>Email: <input type="email" ng-model = "user.email" ></p>
+              <p>Password: <input type="password" ng-model = "user.passwd"></p>
+              <input type = "submit" class="btn btn-primary btn-md" value="Log in">
+              <button class="btn btn-default btn-md" ng-click="cancelIt()">Cancel</button><br>
+            </form>
         </div>
 
         <div class = "signup" ng-hide = "hideSignup">
-            <h2>Sign up page (mobile)</h2>
-            <p>First Name: <input type = "text" ng-model = "info.firstName" required></p>
-            <p>Last Name: <input type = "text" ng-model = "info.lastName" required></p>
-            <p>Birthday: <input type="date" ng-model = "info.birthday"></p>
-            <p>City: <select name="city" ng-model = "info.city">
-                <option value="Seattle">Seattle</option>
-                <option value="Tacoma">Tacoma</option>
-                <option value="Bellveue">Bellveue</option>
-                <option value="Olimpic">Olimpic</option>
-                </select>
-            </p> 
-            <p>Email: <input type="email" ng-model = "info.email" required></p>
-            <p>Password: <input type="password" ng-model = "info.passwd" required></p>
-            <!-- <p>Password confirm: <input type="text" ng-model = "info.confirm" required></p> -->
+            <h2>Sign up page</h2>
+            <form onsubmit="signup()">
+              <p>First Name: <input type = "text" ng-model = "info.firstName" required></p>
+              <p>Last Name: <input type = "text" ng-model = "info.lastName" required></p>
+              <p>Birthday: <input type="date" ng-model = "info.birthday"></p>
+              <p>City: <select name="city" ng-model = "info.city">
+                  <option value="Seattle">Seattle</option>
+                  <option value="Tacoma">Tacoma</option>
+                  <option value="Bellveue">Bellveue</option>
+                  <option value="Olimpic">Olimpic</option>
+                  </select>
+              </p> 
+              <p>Email: <input type="email" ng-model = "info.email" required></p>
+              <p>Password: <input type="password" ng-model = "info.passwd" required></p>
+              <!-- <p>Password confirm: <input type="text" ng-model = "info.confirm" required></p> -->
 
-            <button class="btn btn-primary btn-md" ng-click="signup()">Submit</button>
-            <button class="btn btn-default btn-md" ng-click="cancel()">Cancel</button><br>
+              <input type="submit" class="btn btn-primary btn-md" value="Sign up">
+              <button class="btn btn-default btn-md" ng-click="cancel()">Cancel</button><br>
+            </form>
             <textarea style="margin: 2vw; width:300px; height: 300px;">result: {{res|json}}</textarea>
             <br><a href="http://104.40.49.149/">Go to chat!</a>
+        </div>
+
+        <div class="hitCounter" ng-hide = "hideCounter">
+            <h2>Check visit count</h2>
+            <form>
+                <p>Hourly : <input type = "datetime-local" ng-model="counter.hour"><button class="btn btn-danger btn-xs" ng-click="countHourly()">Get</button> | {{resphour}}</p>
+                <p>Dayly : <input type = "date" ng-model="counter.day"><button class="btn btn-danger btn-xs" ng-click="countDayly()">Get</button> | {{respday}}</p>
+                <p>Monthly : <input type="month" ng-model="counter.month"><button class="btn btn-danger btn-xs" ng-click="countMonthly()">Get</button> | {{respmonth}}</p>
+                <p>Yearly : <input type="month" ng-model="counter.month"><button class="btn btn-danger btn-xs" ng-click="countYearly()">Get</button> | {{respyear}}</p>
+
+            </form>
         </div>
    </body>
 </html>
