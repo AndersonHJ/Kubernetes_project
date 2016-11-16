@@ -37,8 +37,16 @@
     mongo-webapp-cva8q       1/1       Running   0          7h        10.0.0.18   gke-mongo-webpage-default-pool-76065913-f4d9
     mongo-webapp-fvrdx       1/1       Running   0          7h        10.0.2.16   gke-mongo-webpage-default-pool-76065913-dk87
 
+
         $ kubectl get services
+        
     NAME           CLUSTER-IP     EXTERNAL-IP       PORT(S)     AGE
     kubernetes     10.3.240.1     <none>            443/TCP     1d
     mongo          10.3.246.214   104.198.106.106   27017/TCP   16h
     mongo-webapp   10.3.242.17    104.198.15.146    80/TCP      7h
+
+
+## 4. Resizing the pods
+    $ kubectl scale --replicas=5 rc mongo-webapp
+    
+    
