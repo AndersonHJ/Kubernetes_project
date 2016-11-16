@@ -1,5 +1,10 @@
 # webTool_angularJS
 
+## Updates
+
+   Added kubernetes configuration files
+   Instructions: kubernetes_instruction.md
+
 
 ###/webTool_angularJS
    The website for pc and pad
