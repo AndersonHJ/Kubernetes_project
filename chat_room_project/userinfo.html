@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INFO6250</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+    <script src = "userinfo.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myctrl" data-ng-init="getInfo()">
+<div class="jumbotron">
+  <h1 class="text-center">Your Personal Information</h1>
+</div>
+<div class="col-sm-4"></div>
+<form class="col-sm-4">
+<p>Username(Email): </p><textarea readonly type = "email" ng-model = "info.email" class="form-control"></textarea>
+<p>Password: </p><textarea type = "password" ng-model = "info.password" class="form-control"></textarea>
+<p>FirstName:</p><textarea type = "text" ng-model = "info.firstname" class="form-control"></textarea>
+<p>LastName:</p><textarea type = "text" ng-model = "info.lastname" class="form-control"></textarea>
+<p>City:</p><textarea type = "text" ng-model = "info.city" class="form-control"></textarea>
+<p>Date of Birth:</p><textarea type = "date" ng-model = "info.dateofbirth" class="form-control"></textarea>
+<p>Security Question:</p><textarea readonly type = "text" ng-model = "info.securityquestion" class="form-control"></textarea>
+<p>Answer:</p><textarea type = "text" ng-model = "info.answer" class="form-control"></textarea>
+
+<button ng-click="submit()" class="btn btn-primary" style="margin: 2% 20%">Submit</button>
+<button ng-click="cancel()" class="btn btn-primary" style="margin:2% 10%">Close</button>
+</form>
+
+<div class="col-sm-4"></div>
+</body>
+</html>

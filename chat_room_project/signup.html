@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up New Account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="javascript_Nan.js"></script>
+
+</head>
+
+<body>
+
+<div class="jumbotron">
+    <h1 class="text-center">Welcome to IS chat room!</h1>
+    <div class="container">
+             <a  href = "index.html"><input type="submit"  class="btn btn-primary" value="Back to Log in"></a>
+    </div>
+
+
+</div>
+
+<div class="container" style="margin-bottom: 10%">
+    <div ng-app = "redis" ng-controller = "RedisCtrl">
+        <h2 class="text-center">    Sign Up Your Account</h2>
+
+        <br>
+        <br>
+
+
+        <div id="main_div" style="width: 45%; margin-left: 25%;" style="display: block;"> 
+
+            <h4 class="text-center">Enter your information</h4>
+
+            <form onsubmit="signup()" style="margin-left: 10%">
+                <p>Username(email): </p>
+                <input  class="form-control" style="width: 100%" type = "email" ng-model = "info.email" required>
+                <p>Password: </p>
+                <input class="form-control" style="width: 100%" type = "password" ng-model = "info.password" required>
+                <p>Confirm Password: </p>
+                <input class="form-control" style="width: 100%" type = "password" ng-model = "info.confirmpassword" required>
+                <p>First Name: </p>
+                <input class="form-control" style="width: 100%" type = "text" ng-model = "info.firstname" required>
+                <p>Last Name: </p>
+                <input class="form-control" style="width: 100%" type = "text" ng-model = "info.lastname" required>
+                <p>City: </p>
+                <input class="form-control" style="width: 100%" type = "text" ng-model = "info.city" required>
+                <p>Date of Birth: </p>
+                <input sclass="form-control" tyle="width: 100%" type = "date" ng-model = "info.dateofbirth" required>
+                <p>Security Question: </p>
+                <select class="form-control" style="width: 100%" name="securityquestion" ng-model = "info.securityquestion" required>
+                    <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                    <option value="What is the city you live in?">What is the city you live in?</option>
+                    <option value="Where did you parents meet each other?">Where did you parents meet each other?</option>
+                </select>
+                <p>Answer: </p>
+                <input class="form-control" style="width: 100%" type = "text" ng-model = "info.answer" required><br><br>
+                <input class="btn btn-primary" type="submit" value="Sign Up">
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
