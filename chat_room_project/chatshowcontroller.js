@@ -97,9 +97,8 @@ angShow.controller('showcontroller', function($scope, $http, $filter) {
         var name = document.getElementById('getusername').innerHTML;
         $http.get("app.php?cmd=deleteonline&key="+name)
         .success(function (data, status, headers, config) {
-            document.cookie = "useremail" + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            
-             location.href = "index.html";
+            document.cookie = "chatroomEmail" + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            location.href = "index.html";
            
         })
         .error(function (data, status, header, config) {
